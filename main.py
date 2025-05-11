@@ -13,10 +13,7 @@ def comprimir_pdf(entrada, saida):
         print("\nIniciando a compressão...")
 
         with tqdm(total=total_paginas, desc="Comprimindo PDF", unit="página") as pbar:
-            for pagina in pdf.pages:
-                time.sleep(0.1)
-                pbar.update(1)
-
+            pbar.update(len(pdf.pages))
             pdf.save(saida, compress_streams=True)
 
 
